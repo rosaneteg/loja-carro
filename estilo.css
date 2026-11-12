@@ -1,0 +1,344 @@
+/* Arquivo de estilo do nosso site   */
+
+/* Reset básico, limpar os elementos dos navegadores */
+* {
+    /*removendo as margens da página */
+    margin: 0;
+    
+    /*removendo os espaçamentos */
+    padding: 0;
+
+    /*define como o navegador deve calcular a largura e altura total de um elemento */
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+/* Vamos criar variáveis no CSS
+Neste caso, vou criar a paleta de cores padrão do site, isswo facilita trocar a identidade visual do site */
+:root {
+    /* Cor do fundo escuro do site */
+    --preto: #1c1c1e;
+    /* Variação da cor preta */
+    --preto-suave: #2b2b2f;
+    /* Cor de destaque, similar a cor do carro*/
+    --vermelho: #d62828;
+    /*Tom de vermelho usado no hover */
+    --vermelho-escuro: #a11d1d;
+    /* fundo geral da página */
+    --bege: #f7f5f2;
+    --branco: #ffffff;
+    /* textos secundários */
+    --cinza: #6b7280;
+    /* utilizada para bordas e divisores */
+    --cinza-claro: #adb8ce;
+
+    /* *sombra padrão - usadas nos cards */
+    --sombra: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* configurações gerais do html e do body*/
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* impede a barra de rolagem horizontal*/
+    background-color: var(--bege);
+    color: var(--preto);
+    scroll-behavior: smooth; /* rolagem suave ao clicar em links com o # */
+}
+
+/* Container geral - Conteúdo do header */
+.conteudo {
+
+    min-width: 300px;
+    margin: 0 auto; /* margem automática dos dois lados do conteúdo, ou seja, centraliza */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Colocando configurações da tag header */
+header {
+    width: 100%;
+    /* gradiente sutil em vez de uma cor sólida: dá profundidade sem precisar de uma imagem de fundo*/
+    background: linear-gradient(160deg, var(--preto) 0%, var(--preto-suave) 100%);
+    /* mudando a cor do texto do header */
+    color: var(--branco);
+    padding-bottom: 60px;
+}
+
+/* Barra de navegação */
+nav {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    font-family: 'Popins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--branco);
+    cursor: pointer;
+}
+
+.brand strong {
+    /* vai mudar a cor do nome da loja para vermelho
+    lembrando, que o nome da loja está dentro da tag strong */
+    color: var(--vermelho);
+}
+
+/* Agora vamos começar a tratar o visual da nossa barra de navegação */
+nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* removendo as bolinhas dos itens da lista  */
+    list-style: none;
+}
+
+/* alterando o espaçamento dos itens da lista */
+nav ul li {
+    padding: 0 14px;
+}
+
+/* tratando o visual do que está dentro da tag <a> da nossa lista */
+nav ul li a {
+    /* removendo o sublinhado */
+    text-decoration: none;
+    /* mudar a cor do texto */
+    color: var(--branco);
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+    transition: border-color 0.3s ease, color 0.03s ease;
+}
+
+nav ul li a:hover {
+    color: var(--vermelho);
+    border-bottom-color: var(--vermelho);
+}
+
+/* VAmos configurar o estilo do botão de login */
+.btn-login {
+    /* colocando uma borda fina ao redor do botão  */
+    border: 1px solid var(--branco);
+    /* removendo a cor de fundo do botão */
+    background: transparent;
+
+    /* colocando a cor do texto do botão */
+    color: var(--branco);
+    padding: 10px  28px;
+    cursor: pointer;
+    font-weight: 600;
+    /* arredondar os cantos do botão */
+    border-radius: 100px;
+    transition: background-color 0.3 ease, color 0.3s ease;
+}
+
+/*colocando o hover do botão  */
+.btn-login:hover {
+    background-color: var(--vermelho);
+    border-color: var(--vermelho);
+    color: var(--branco);
+}
+
+/* Bloco de destaque (texto + imagem do carro) */
+.header-block {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 20px 10px;
+}
+
+.header-block .tag {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    /* vou mudar a cor de fundo do span */
+    background-color: var(--vermelho);
+    color: var(--branco);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 100px;
+}
+
+/* Estamos delimitando que o bloco de texto tenha no máximo 480px de tamanho*/
+.header-block .text {
+    max-width: 480px;
+}
+
+/* vamos configurar o h1 do text */
+.header-block .text h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    line-height: 1.15;
+    color: var(--branco);
+    margin-bottom: 18px;
+}
+
+/* vamos configurar o texto do p que está dentro da tag text */
+.header-block .text p {
+    color: var(--cinza-claro);
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+/* fazendo as configurações da imagem */
+.header-block .imagem {
+    /* impede que a imagem encolha para caber o texto*/
+    flex-shrink: 0; 
+    /* alterando o tamanho da imagem*/
+    width: 480px;
+    max-width: 45%;
+}
+
+/* agora, configurando a tag da imagem, o img*/
+.header-block .imagem img {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+    /* sombra na imagem */
+    box-shadow: var(--sombra);
+}
+
+.btn-cta {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--vermelho);
+    color: var(--branco);
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 100px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cta:hover {
+    background-color: var(--vermelho-escuro);
+    transform: translateX(-2px);
+}
+
+/* seção de catálogo  */
+.catalogo {
+    width: 100%;
+    padding: 80px 0 60px 0;
+}
+
+.catalogo h2 {
+    font-family: 'Poppins', sans-serif;    
+    font-size: 32px;
+    margin-bottom: 6px;
+}
+
+.catalogo .subtitulo {
+    color: var(--cinza);
+    margin-bottom: 30px;
+}
+
+/* barra de busca */
+.buscatexto {
+    /* removendo o espaço entre o filtro de busca e o botão  */
+    flex: 1;
+    height: 52px;
+    /* arredondando as bordas esquerda inferior e superior */
+    border-radius: 100px 0 0 100px;
+    /* coloca o foco do input 16px para frente */
+    text-indent: 16px;
+    border: 1px solid var(--cinza-claro);
+    /* removendo a borda da direita */
+    border-right: none;
+    background-color: var(--branco);
+    font-size: 15px;
+}
+
+.filtrobusca {
+    display: flex;
+    margin-bottom: 50px;
+    max-width: 600px;
+}
+
+.buscatexto::placeholder {
+    color: var(--cinza);
+}
+
+/* arrumando o estilo do botão de busca */
+.buscabotao {
+    width: 150px; 
+    height: 52px;
+    border: none;
+    color: var(--branco);
+    background-color: var(--vermelho);
+    border-radius: 0 100px 100px 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.buscabotao:hover {
+    background-color: var(--vermelho-escuro);
+}
+
+/* vamos construir nossos cards dos carrinhos */
+.grade-catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: var(--branco);
+    border-radius: 14px;
+    padding: 28px 24px;
+    box-shadow: var(--sombra);
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-imagem {
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.card h3{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: var(--cinza);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.card .preco {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--vermelho);
+}
+
+/* estilo visual do rodapé */
+footer {
+    width: 100%;
+    background-color: var(--preto);
+    color: var(--cinza-claro);
+    padding: 24px 0;
+}
+
+.rodape-conteudo {
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+}
